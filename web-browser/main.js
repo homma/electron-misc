@@ -13,25 +13,17 @@ const createWindow = () => {
 
   const win = new BrowserWindow(properties);
 
-  // const tb = createToolbar(win);
+  // for web contents
   const br1 = createBrowser(win);
+
+  // is able to load contents as well
+  win.loadURL(url);
 
   return win;
 };
 
 const createToolbar = win => {
-  const properties = {
-    x: 0,
-    y: 0,
-    height: 100,
-    width: config.window.width
-  };
-
-  const view = new BrowserView(properties);
-
-  win.setBrowserView(view);
-  view.setBounds({x:0, y:0, width: 1000, height: 100});
-  return view;
+  // do something
 };
 
 const createBrowser = win => {
@@ -46,7 +38,7 @@ const createBrowser = win => {
 
   // cannot have multipel browser view
   win.setBrowserView(view);
-  view.setBounds({x:0, y:0, width: 1000, height: 800});
+  view.setBounds({ x: 0, y: 300, width: 1000, height: 800 });
   view.webContents.loadURL(url);
 
   return view;
